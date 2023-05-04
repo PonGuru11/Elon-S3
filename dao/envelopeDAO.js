@@ -8,7 +8,7 @@ let accessToken = null;
 
 const fetchAccessToken = async () => {
   try {
-    const response = await axios.post('https://elon-adminjwt.onrender.com/oauth/token');
+    const response = await axios.post('https://elon-jwt.onrender.com/oauth/token');
     accessToken = response.data.access_token;
   } catch (error) {
     console.error(error);
@@ -21,7 +21,6 @@ exports.getEnvelopeApiUrl = () => `${baseUrl}/${apiVersion}/accounts/${accountId
 
 exports.getEnvelopeApiHeaders = () => ({
   'Content-Type': 'application/json',
-  // 'Content-Type': 'text/plain',
   'Authorization': `Bearer ${accessToken}`
 });
 
